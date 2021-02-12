@@ -6,4 +6,4 @@ deploy:
   api_key: $HEROKU_API_KEY
   app: lab5-addressbook-sysc4806
   on:
-    all_branches: true
+    branch: main
