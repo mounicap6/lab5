@@ -3,6 +3,5 @@ jdk:
   - openjdk8
 deploy:
   provider: heroku
-  #p
   api_key: $HEROKU_API_KEY
-  app: lab5-addressbook
+  app: lab5-addressbook-sysc4806
