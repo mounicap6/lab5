@@ -32,7 +32,9 @@ function addNewBuddy(e) {
         },
         body: JSON.stringify({
             "name": name,
-            "phoneNumber": buddyNumber
+            "phoneNumber": phoneNumber,
+            "age": age,
+            "address" : address
         })
     }).then(function (value) {
         value.json().then(function (buddy) {
@@ -45,15 +47,15 @@ function addNewBuddy(e) {
                 },
                 body: addressBookBuddiesLink
             }).then(function (value1) {
-                attachBuddyToUI(buddy.name, buddy.phoneNumber);
+                attachBuddyToUI(buddy.name, buddy.phoneNumber, buddy.age, buddy.address);
             })
         });
     });
 }
 
-function attachBuddyToUI(name, phoneNumber) {
+function attachBuddyToUI(name, phoneNumber,age,address) {
     var buddyRow =  document.createElement('tr')
-    buddyRow.innerHTML = "<td>"+name+"</td><td>"+phoneNumber+"</td>";
+    buddyRow.innerHTML = "<td>"+name+"</td><td>"+phoneNumber+"</td><td>"+age+"</td><td>"+address+"</td>";
 
     table.tBodies[0].insertBefore(buddyRow,table.rows[table.rows.length-1])
 
