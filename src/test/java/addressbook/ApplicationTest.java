@@ -2,26 +2,21 @@ package addressbook;
 
 import addressbook.repository.AddressBookRepository;
 import addressbook.repository.BuddyInfoRepository;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-
+import static org.junit.Assert.*;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
 public class ApplicationTest {
@@ -36,14 +31,13 @@ public class ApplicationTest {
     AddressBookRepository addressBookRepository;
 
     @Test
-    public void addressBookShouldBeEmpty() throws Exception {
+    public void addressBookIsEmpty() throws Exception {
         String url = "/addressbook";
         this.mockMvc.perform(get(url))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/hal+json;charset=UTF-8"))
+                .andExpect(content().contentType("application/hal+json"))
                 .andExpect(jsonPath("_embedded.addressbook", hasSize(0)));
-
     }
 
     @Test
@@ -59,7 +53,7 @@ public class ApplicationTest {
     }
 
     @Test
-    public void createNewBuddy() throws Exception {
+    public void createBuddy() throws Exception {
         String url = "/buddy";
         MvcResult result = this.mockMvc.perform(post(url)
                 .contentType(MediaType.APPLICATION_JSON).content("{\"name\": \"Mounica\",\n" +
@@ -70,4 +64,5 @@ public class ApplicationTest {
 
         assertNotNull(this.buddyRepo.findByName("Mounica"));
     }
+
 }
