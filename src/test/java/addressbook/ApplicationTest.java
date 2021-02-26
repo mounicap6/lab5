@@ -54,7 +54,7 @@ public class ApplicationTest {
         assertNotEquals(this.addressBookRepository.count(), 0);
     }
 
-    @Test
+   /* @Test
     public void createBuddy() throws Exception {
         String url = "/buddy";
         MvcResult result = this.mockMvc.perform(post(url)
@@ -67,6 +67,6 @@ public class ApplicationTest {
                 .andReturn();
 
         assertNotNull(this.buddyRepo.findByName("Mounica"));
-    }
+    }*/
 
 }
