@@ -1,7 +1,7 @@
 var table = document.getElementById("buddiesTable");
 var submitbutton = document.getElementById("submit");
-
 var addressBookBuddiesLink = null;
+
 createNewAddressBook();
 
 function createNewAddressBook(){
@@ -58,7 +58,6 @@ function attachBuddyToUI(name, phoneNumber,age,address) {
     buddyRow.innerHTML = "<td>"+name+"</td><td>"+phoneNumber+"</td><td>"+age+"</td><td>"+address+"</td>";
 
     table.tBodies[0].insertBefore(buddyRow,table.rows[table.rows.length-1])
-
 }
 
 submitbutton.addEventListener("click", addNewBuddy);
