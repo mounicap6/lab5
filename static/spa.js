@@ -1,5 +1,5 @@
-var table = document.getElementById("buddies-table");
-var submitbutton = document.getElementById("submitbtn");
+var table = document.getElementById("buddiesTable");
+var submitbutton = document.getElementById("submit");
 
 var addressBookBuddiesLink = null;
 createNewAddressBook();
