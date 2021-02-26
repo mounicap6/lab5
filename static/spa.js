@@ -1,6 +1,8 @@
 var table = document.getElementById("buddiesTable");
 var submitbutton = document.getElementById("submit");
 var addressBookBuddiesLink = null;
+var submitAB = document.getElementById("submitAB");
+
 
 createNewAddressBook();
 
@@ -22,7 +24,8 @@ function createNewAddressBook(){
 function addNewBuddy(e) {
     e.preventDefault();
     var name = document.getElementById("buddyName").value;
-    var buddyNumber = document.getElementById("buddyNumber").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
+    var address = document.getElementById("buddyAddress").value;
 
     fetch('http://localhost:8080/buddy', {
         method: 'POST',
@@ -33,7 +36,6 @@ function addNewBuddy(e) {
         body: JSON.stringify({
             "name": name,
             "phoneNumber": phoneNumber,
-
             "address" : address
         })
     }).then(function (value) {
@@ -53,7 +55,7 @@ function addNewBuddy(e) {
     });
 }
 
-function attachBuddyToUI(name, phoneNumber,age,address) {
+function attachBuddyToUI(name, phoneNumber,address) {
     var buddyRow =  document.createElement('tr')
     buddyRow.innerHTML = "<td>"+name+"</td><td>"+phoneNumber+"</td><td>"+address+"</td>";
 
