@@ -7,14 +7,17 @@
 </head>
 <body>
 
-<p> ***** Address Book ****** </p>
+<p> ****** Address Book ****** </p>
         <table>
-            <p th:text = "${addressbook.buddies}"></p>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
             <tr th:each="buddy : ${addressbook.buddies}">
                 <td th:text="${buddy.name}"></td>
                 <td th:text="${buddy.phoneNumber}"></td>
                 <td th:text="${buddy.address}"></td>
-                <td th:text="${buddy.age}"></td>
             </tr>
         </table>
 
@@ -22,7 +25,7 @@
         Name: <input type="text" th:field="*{name}"> <br>
         Phone Number: <input type="text" th:field="*{phoneNumber}"> <br>
         Address: <input type="text" th:field="*{address}"> <br>
-        Age: <input type="text" th:field="*{age}"> <br>
+
         <button type="submit">Add Buddy</button>
     </form>
 </body>

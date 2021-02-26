@@ -9,7 +9,6 @@ public class BuddyInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private Integer age;
     private String name;
     private String phoneNumber;
     private String address;
@@ -19,14 +18,14 @@ public class BuddyInfo {
     private AddressBook addressBook;
 
     protected BuddyInfo(){
-        this(null, null,null,null);
+        this(null, null,null);
     }
 
-    public BuddyInfo(String name, String phoneNumber, String address, Integer age) {
+    public BuddyInfo(String name, String phoneNumber, String address) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
-        this.age = age;
+
     }
 
     /**
@@ -35,7 +34,7 @@ public class BuddyInfo {
      */
 
     public BuddyInfo(String name){
-        this(name, null,null,null);
+        this(name, null,null);
     }
 
 
@@ -70,17 +69,6 @@ public class BuddyInfo {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        if(age == 0) {
-            this.age = 1;
-        } else {
-            this.age = Math.abs(age);
-        }
     }
 
    /* @Override
